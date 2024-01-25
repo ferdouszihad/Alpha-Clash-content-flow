@@ -9,14 +9,20 @@ function getRandomAphabet() {
   const randomAlphabet = arrayOfAllAlphabets[randomNum]; // getting a randomAlphabet
   console.log(randomAlphabet);
   setElementText("current-alphabet", randomAlphabet);
+
+  const myscreenKeys = document.getElementsByTagName("kbd");
+  for (let keyBox of myscreenKeys) {
+    if (randomAlphabet == keyBox.innerText) {
+      keyBox.style.background = "orange";
+    } else {
+      keyBox.style.background = "#fefefe";
+    }
+  }
 }
 getRandomAphabet();
 
 document.addEventListener("keyup", function (e) {
   const myscreenKeys = document.getElementsByTagName("kbd");
-  for (let keyBox of myscreenKeys) {
-    keyBox.style.background = "#fefefe";
-  }
 
   const pressedButtonKey = e.key;
   //   console.log(pressedButtonKey);
@@ -38,9 +44,7 @@ document.addEventListener("keydown", function (e) {
   const myscreenKeys = document.getElementsByTagName("kbd");
   for (let keyBox of myscreenKeys) {
     if (pressedButtonKey == keyBox.innerText) {
-      keyBox.style.background = "#4cd389";
-    } else {
-      keyBox.style.background = "#fefefe";
+      keyBox.style.background = "tomato";
     }
   }
 });
