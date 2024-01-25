@@ -19,7 +19,6 @@ function getRandomAphabet() {
     }
   }
 }
-getRandomAphabet();
 
 function restart() {
   hide("result");
@@ -28,14 +27,20 @@ function restart() {
   setElementText("score", 0);
   setElementText("life", 5);
   isGameplayOn = true;
+  getRandomAphabet();
 }
 
 document.addEventListener("keyup", function (e) {
+  const pressedButtonKey = e.key;
+  if (pressedButtonKey == "Enter" && isGameplayOn == false) {
+    restart();
+    return; //must to write else it will execute next codes for Enter key
+  }
+
   if (isGameplayOn == false) {
     return;
   }
   const myscreenKeys = document.getElementsByTagName("kbd");
-  const pressedButtonKey = e.key;
   //   console.log(pressedButtonKey);
   const currentAlphabet = getElementText("current-alphabet");
 
@@ -64,6 +69,7 @@ document.addEventListener("keyup", function (e) {
 document.addEventListener("keydown", function (e) {
   if (isGameplayOn == false) return;
   const pressedButtonKey = e.key;
+
   const myscreenKeys = document.getElementsByTagName("kbd");
   for (let keyBox of myscreenKeys) {
     if (pressedButtonKey == keyBox.innerText) {
