@@ -19,9 +19,17 @@ document.addEventListener("keyup", function (e) {
   const alphabetBox = document.getElementById("current-alphabet"); //getting the alphabet element
   const currentAlphabet = alphabetBox.innerText;
   if (currentAlphabet == pressedButtonKey) {
-    console.log("weldone");
+    const scoreBox = document.getElementById("score");
+    const scoreCountText = scoreBox.innerText;
+    let scoreCountNum = parseInt(scoreCountText);
+    console.log(scoreCountNum);
+    scoreBox.innerText = scoreCountNum + 1;
     getRandomAphabet();
   } else {
-    console.log("wrong");
+    const lifeBox = document.getElementById("life");
+    const lifeCountText = lifeBox.innerText;
+    let lifeCountNum = parseInt(lifeCountText);
+    console.log(lifeCountNum);
+    lifeBox.innerText = lifeCountNum - 1;
   }
 });
