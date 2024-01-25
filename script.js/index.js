@@ -14,6 +14,11 @@ function getRandomAphabet() {
 getRandomAphabet();
 
 document.addEventListener("keyup", function (e) {
+  const myscreenKeys = document.getElementsByTagName("kbd");
+  for (let keyBox of myscreenKeys) {
+    keyBox.style.background = "#fefefe";
+  }
+
   const pressedButtonKey = e.key;
   console.log(pressedButtonKey);
   const alphabetBox = document.getElementById("current-alphabet"); //getting the alphabet element
@@ -31,5 +36,17 @@ document.addEventListener("keyup", function (e) {
     let lifeCountNum = parseInt(lifeCountText);
     console.log(lifeCountNum);
     lifeBox.innerText = lifeCountNum - 1;
+  }
+});
+
+document.addEventListener("keydown", function (e) {
+  const pressedButtonKey = e.key;
+  const myscreenKeys = document.getElementsByTagName("kbd");
+  for (let keyBox of myscreenKeys) {
+    if (pressedButtonKey == keyBox.innerText) {
+      keyBox.style.background = "#4cd389";
+    } else {
+      keyBox.style.background = "#fefefe";
+    }
   }
 });
