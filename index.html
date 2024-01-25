@@ -30,7 +30,7 @@
   <body
     class="bg-[url(./images/bg.png)] bg-[#040519] bg-center bg-contain bg-no-repeat min-h-screen"
   >
-    <section id="home" class="hidden">
+    <section id="home">
       <div
         class="content-box flex gap-5 flex-col justify-center min-h-screen items-center text-white"
       >
@@ -39,7 +39,7 @@
           Unleash Your Keyboard Kung Fu : Press
           <span class="font-bold">"Enter"</span> to Play
         </p>
-        <button class="btn">
+        <button id="start-btn" class="btn">
           <img class="w-4" src="./images/index.png" alt="" />Play now
         </button>
       </div>
@@ -52,7 +52,7 @@
         <div
           class="result-content mx-auto p-5 glass space-y-5 text-center rounded-lg"
         >
-          <h1 class="text-5xl">Score : <span id="result-count">0</span></h1>
+          <h1 class="text-5xl">Score : <span id="result-box">0</span></h1>
           <button id="restart-btn" class="btn">
             <img class="w-4" src="./images/index.png" alt="" />Play Again
           </button>
@@ -61,7 +61,7 @@
       </div>
     </section>
 
-    <section id="play-ground">
+    <section id="play-ground" class="hidden">
       <!-- screen start  -->
       <div class="content-box space-y-10 pt-10">
         <div

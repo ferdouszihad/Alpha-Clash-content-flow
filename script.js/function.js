@@ -19,3 +19,12 @@ function setElementText(id, newValue) {
   const element = document.getElementById(id);
   element.innerText = newValue;
 }
+
+function show(id, displayValue) {
+  const element = getElementById(id);
+  element.classList.remove("hidden");
+}
+function hide(id) {
+  const element = getElementById(id);
+  element.classList.add("hidden");
+}

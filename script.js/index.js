@@ -21,6 +21,14 @@ function getRandomAphabet() {
 }
 getRandomAphabet();
 
+function restart() {
+  hide("result");
+  show("play-ground");
+  hide("home");
+  setElementText("score", 0);
+  setElementText("life", 5);
+}
+
 document.addEventListener("keyup", function (e) {
   const myscreenKeys = document.getElementsByTagName("kbd");
 
@@ -36,6 +44,12 @@ document.addEventListener("keyup", function (e) {
   } else {
     let lifeCountNum = getElementNumber("life");
     setElementText("life", lifeCountNum - 1);
+    if (getElementNumber("life") == 0) {
+      show("result");
+      hide("play-ground");
+      const score = getElementNumber("score");
+      setElementText("result-box", score);
+    }
   }
 });
 
@@ -47,4 +61,11 @@ document.addEventListener("keydown", function (e) {
       keyBox.style.background = "tomato";
     }
   }
+});
+
+getElementById("restart-btn").addEventListener("click", function () {
+  restart();
+});
+getElementById("start-btn").addEventListener("click", function () {
+  restart();
 });
