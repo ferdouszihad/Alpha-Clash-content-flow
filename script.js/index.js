@@ -1,7 +1,7 @@
 console.log("connected");
 const allAlphabets = "abcdefghijklmnopqrstuvwxyz";
 const arrayOfAllAlphabets = allAlphabets.split("");
-console.log(arrayOfAllAlphabets);
+const audio = new Audio();
 
 function getRandomAphabet() {
   let randomNum = Math.random() * 26; // a floating number will generated
@@ -37,11 +37,15 @@ document.addEventListener("keyup", function (e) {
   const currentAlphabet = getElementText("current-alphabet");
 
   if (currentAlphabet == pressedButtonKey) {
+    audio.src = "./../audio/success.mp3";
+    audio.play();
+
     let scoreCountNum = getElementNumber("score");
     setElementText("score", scoreCountNum + 1);
-
     getRandomAphabet();
   } else {
+    audio.src = "./../audio/wrong.mp3";
+    audio.play();
     let lifeCountNum = getElementNumber("life");
     setElementText("life", lifeCountNum - 1);
     if (getElementNumber("life") == 0) {
