@@ -12,3 +12,16 @@ function getRandomAphabet() {
   alphabetBox.innerHTML = randomAlphabet;
 }
 getRandomAphabet();
+
+document.addEventListener("keyup", function (e) {
+  const pressedButtonKey = e.key;
+  console.log(pressedButtonKey);
+  const alphabetBox = document.getElementById("current-alphabet"); //getting the alphabet element
+  const currentAlphabet = alphabetBox.innerText;
+  if (currentAlphabet == pressedButtonKey) {
+    console.log("weldone");
+    getRandomAphabet();
+  } else {
+    console.log("wrong");
+  }
+});
