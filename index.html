@@ -16,9 +16,40 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- my custom styles  -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body
     class="bg-[url(./images/bg.png)] bg-[#040519] bg-center bg-contain bg-no-repeat min-h-screen"
-  ></body>
+  >
+    <section id="home">
+      <div
+        class="content-box flex gap-5 flex-col justify-center min-h-screen items-center text-white"
+      >
+        <h1 class="text-8xl">ALPHABET CLASH</h1>
+        <p>
+          Unleash Your Keyboard Kung Fu : Press
+          <span class="font-bold">"Enter"</span> to Play
+        </p>
+        <button class="btn">
+          <img class="w-4" src="./images/index.png" alt="" />Play now
+        </button>
+      </div>
+    </section>
+
+    <section id="result" class="">
+      <div
+        class="content-box min-h-screen justify-center items-center text-white flex"
+      >
+        <div
+          class="result-content mx-auto p-5 glass space-y-5 text-center rounded-lg"
+        >
+          <h1 class="text-5xl">Score : <span id="result-count">0</span></h1>
+          <button id="restart-btn" class="btn">
+            <img class="w-4" src="./images/index.png" alt="" />Play Again
+          </button>
+          <p>Practice will make you Pro</p>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
