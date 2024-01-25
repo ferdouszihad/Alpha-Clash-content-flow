@@ -2,7 +2,7 @@ console.log("connected");
 const allAlphabets = "abcdefghijklmnopqrstuvwxyz";
 const arrayOfAllAlphabets = allAlphabets.split("");
 const audio = new Audio();
-
+let isGameplayOn = false;
 function getRandomAphabet() {
   let randomNum = Math.random() * 26; // a floating number will generated
   randomNum = parseInt(randomNum);
@@ -27,11 +27,14 @@ function restart() {
   hide("home");
   setElementText("score", 0);
   setElementText("life", 5);
+  isGameplayOn = true;
 }
 
 document.addEventListener("keyup", function (e) {
+  if (isGameplayOn == false) {
+    return;
+  }
   const myscreenKeys = document.getElementsByTagName("kbd");
-
   const pressedButtonKey = e.key;
   //   console.log(pressedButtonKey);
   const currentAlphabet = getElementText("current-alphabet");
@@ -53,11 +56,13 @@ document.addEventListener("keyup", function (e) {
       hide("play-ground");
       const score = getElementNumber("score");
       setElementText("result-box", score);
+      isGameplayOn = false;
     }
   }
 });
 
 document.addEventListener("keydown", function (e) {
+  if (isGameplayOn == false) return;
   const pressedButtonKey = e.key;
   const myscreenKeys = document.getElementsByTagName("kbd");
   for (let keyBox of myscreenKeys) {
